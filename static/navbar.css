@@ -1,0 +1,180 @@
+.navbar{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.btn-group-vertical>.btn, .btn-group>.btn{
+background: none !important;
+border: none !important;
+color: black !important;
+}
+.w{
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 25%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.carousel-indicators{
+    margin-bottom: -2em !important;
+}
+.w:hover{
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+    width: 100%;
+    padding-right: 0px !important; 
+    padding-left: 0px !important;
+    margin-right:  0px !important;
+
+    /* margin-left: auto;
+    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+    /* height: 50%; */
+}
+.btn-danger{
+    background: none !important;
+    border: none !important;
+    color: black !important;
+}
+.btn-group-vertical>.btn, .btn-group>.btn:hover{
+    background: none;
+border: none;
+color: black;
+}
+#google_translate_element{
+    margin-top: 5px;
+    font-weight: 100;
+    letter-spacing: 00.5vw;
+}
+.navbar-nav .dropdown-menu{
+    position: absolute !important;
+}
+#google_translate_element select {
+    outline: none;
+    /* border: 0.1vw solid rgba(196, 186, 186, 0.301); */
+    color: rgb(0, 0, 0);
+    /* padding: 0.2vw 0.5vw; */
+    /* font-size: 1.2vw; */
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    margin-top: 3px;
+    /* border-radius: 0.7vw; */
+    /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    /* margin: 0vw 0.5vw; */
+    cursor: pointer;
+    background: none;
+  }
+
+ #moreBtn:active{
+    box-shadow: rgba(165, 103, 52, 0.12) 0px 2px 4px 0px, rgba(167, 138, 61, 0.32) 0px 2px 16px 0px;
+ } 
+ 
+  #google_translate_element select option {
+    color: black;
+  }
+
+  #google_translate_element .goog-logo-link {
+    display: none;
+  }
+
+  #google_translate_element .goog-te-gadget {
+    font-size: 0vw;
+  }
+
+body{
+    position: inherit;
+}
+
+  @media screen and (max-width:400px) {
+      .w{
+          width: 100% !important;
+          margin-left: 0% !important;
+          margin-top: 10px;
+      }
+  }
+
+
+.bg-light-image{
+    background-image: url(https://images.pexels.com/photos/2730218/pexels-photo-2730218.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+
+#footer{
+  height: 0 !important;
+}
+  .container {
+    max-width: 960px;
+  }
+  
+  /*
+   * Custom translucent site header
+   */
+  #specialVak{
+      background-image: url(https://th.bing.com/th/id/OIP.kolcVD9NmnZDr2zrIQAP5QHaFj?w=249&h=187&c=7&r=0&o=5&dpr=1.25&pid=1.7);
+  }
+  .site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  .site-header a {
+    color: #8e8e8e;
+    transition: color .15s ease-in-out;
+  }
+  .site-header a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /*
+   * Dummy devices (replace them with your own or something else entirely!)
+   */
+  
+  .product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    transform: rotate(30deg);
+  }
+  
+  .product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+  .product-device{
+      display: none;
+      width: 0px;
+  }
+  .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  }
+  
+  .light{
+      background-color: rgba(255, 255, 255, 0.39) !important;
+  }
+  #appeal{
+      margin-top: 0%;
+  }
+  /*
+   * Extra utilities
+   */
+  
+  .flex-equal > * {
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .flex-md-equal > * {
+      flex: 1;
+    }
+  }
