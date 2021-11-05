@@ -18,6 +18,10 @@
         font-weight: bold;
         margin-top: 15px;
     }
+    .card-body{
+        display: flex;
+        justify-content: space-between;
+    }
     </style>
 </head>
 <body id="content">
@@ -103,13 +107,13 @@
   </nav>
 <div class="container">
 <center><h1 class="my2">Get Donation Reciept Here</h1></center>
-<form class="row g-3 was-validated" >
-  
+<form class="row g-3 was-validated" method="post" action="reciept" >
+  {% csrf_token %}
   <div class="col-md-6">
     <label for="validationCustomUsername" class="form-label">You can enter anything like Reciepter's name or  Reciept id or Email or Mobile Number</label>
     <div class="input-group has-validation">
       <span class="input-group-text" id="inputGroupPrepend">@</span>
-      <input type="text" class="form-control"  id="validationCustomUsername" pattern="([^\s][A-z0-9À-ž\s]+)"  aria-describedby="inputGroupPrepend" required>
+      <input type="text" class="form-control" name="serachTerm"  id="validationCustomUsername" pattern="([^\s][A-z0-9À-ž\s]+)"  aria-describedby="inputGroupPrepend" required>
       <div class="invalid-feedback">
         Please enter valid details.
       </div>
@@ -120,9 +124,22 @@
     <button class="btn btn-warning" type="submit">Search</button>
   </div>
 </form>
-
 </div>
 
+{{result}}
+
+
+{% for i in donors|slice:"0:" %}
+<div class="container my-3" style="display: {{display}}">
+<div class="card w-50">
+  <div class="card-body">
+    <h5 class="card-title"><b> Name: </b>{{i.donor_first_name}} {{i.donor_last_name}}</h5>
+    <p class="card-text"><b>Reciept Id: </b> {{i.donor_txnid}}</p>
+  </div>
+  <a href="#" class="btn btn-warning">Download</a>
+</div>
+</div>
+{% endfor %}
   <script>
     {% comment %} window.onload = () => {
       setInterval(googleTranslateElementInit(), 0);

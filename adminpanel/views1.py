@@ -16,24 +16,24 @@ from home.models import Donor, Event, Feedback, Contact, Expenditure
 # Create your views here.
 def adminlogin(request):
     if request.method == 'POST':
-        # balance = Donor.objects.all()
-        # expediture = Expenditure.objects.all()
-        # bala = 0
-        # expe = 0
-        # for j in expediture[0:]:
-        #     expe = expe + int(j.expenditure_amount)
-        # for i in balance[0:]:
-        #     bala = bala + int(i.donor_amount)
-        # bala = bala - expe
-        # Making Checkout form into dictionary
-        # data = {k: v[0] for k, v in dict(request.POST).items()}
-        # user = authenticate(username=data['loginId'], password=data['password'])
+        balance = Donor.objects.all()
+        expediture = Expenditure.objects.all()
+        bala = 0
+        expe = 0
+        for j in expediture[0:]:
+            expe = expe + float(j.expenditure_amount)
+        for i in balance[0:]:
+            bala = bala + float(i.donor_amount)
+        bala = bala - expe
+        # Making Checkout form floato dictionary
+        data = {k: v[0] for k, v in dict(request.POST).items()}
+        user = authenticate(username=data['loginId'], password=data['password'])
         username = request.POST['loginId']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
                 login(request, user)
-                return render(request,'dashboard.html',{'status': 'Successfully donor added!','display':'none'})
+                return render(request,'dashboard.html',{'status': 'Successfully donor added!','display':'none','expendi':expediture, 'balance':bala, 'expenditure':expe})
     return render(request,'adminlogin.html')
         
     
@@ -44,7 +44,7 @@ def dashboard(request):
     bala = 0
     expe = 0
     for j in expediture[0:]:
-        expe = expe + int(j.expenditure_amount)
+        expe = expe + float(j.expenditure_amount)
     for i in balance[0:]:
         bala = bala + float(i.donor_amount)
     bala = bala - expe
@@ -120,9 +120,9 @@ def addDonor(request):
         bala = 0
         expe = 0
         for j in expediture[0:]:
-            expe = expe + int(j.expenditure_amount)
+            expe = expe + float(j.expenditure_amount)
         for i in balance[0:]:
-            bala = bala + int(i.donor_amount)
+            bala = bala + float(i.donor_amount)
         bala = bala - expe
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
@@ -145,9 +145,9 @@ def addEvent(request):
         bala = 0
         expe = 0
         for j in expediture[0:]:
-            expe = expe + int(j.expenditure_amount)
+            expe = expe + float(j.expenditure_amount)
         for i in balance[0:]:
-            bala = bala + int(i.donor_amount)
+            bala = bala + float(i.donor_amount)
         bala = bala - expe
         eventname = request.POST['eventname']
         eventstartdate = request.POST['eventstartdate']
@@ -165,9 +165,9 @@ def addExpenditure(request):
         bala = 0
         expe = 0
         for j in expediture[0:]:
-            expe = expe + int(j.expenditure_amount)
+            expe = expe + float(j.expenditure_amount)
         for i in balance[0:]:
-            bala = bala + int(i.donor_amount)
+            bala = bala + float(i.donor_amount)
         bala = bala - expe
         expendName = request.POST['expendName']
         txnid = request.POST['txnid']

@@ -48,7 +48,29 @@ def contact(request):
     return render(request,'contact.html',{'display':'none'})
 
 def reciept(request):
-    return render(request,'reciept.html')
+    if(request.method == "POST"):
+        searchTerm = request.POST['serachTerm']
+        donor = Donor.objects.all().filter(donor_first_name__contains=searchTerm, payment_status= 'success')
+        donor1 = Donor.objects.all().filter(donor_last_name__contains=searchTerm, payment_status= 'success')
+        donor2 = Donor.objects.all().filter(donor_email__contains=searchTerm, payment_status= 'success')
+        donor3 = Donor.objects.all().filter(donor_phone_number__contains=searchTerm, payment_status= 'success')
+        donor4 = Donor.objects.all().filter(donor_txnid__contains=searchTerm, payment_status= 'success')
+        if(len(donor)>0):
+            return render(request,'reciept.html',{'donors':donor,'display':'block'})
+        elif(len(donor1)>0):
+            return render(request,'reciept.html',{'donors':donor1,'display':'block'})
+        
+        elif(len(donor2)>0):
+            return render(request,'reciept.html',{'donors':donor2,'display':'block'})
+
+        elif(len(donor3)>0):
+            return render(request,'reciept.html',{'donors':donor3,'display':'block'})
+        
+        elif(len(donor4)>0):
+            return render(request,'reciept.html',{'donors':donor4,'display':'block'})
+        else:
+            render(request,'reciept.html',{'display':'none','result':'No result found!'})
+    return render(request,'reciept.html',{'display':'none'})
 
 def payment(request):
     return render(request,'payment.php')
