@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path
 from home import views
 from adminpanel import views1
 from checkout import views2

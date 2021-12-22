@@ -14,13 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path
 from home import views
 from adminpanel import views1
 from checkout import views2
+from django.conf import settings
+from django.views.static import serve
+from django.conf.urls import url
+
 urlpatterns = [
     path('hanumanadmin/', admin.site.urls),
-    path('',include('home.urls')),
+    path('',views.home),
     path('trust',views.trust),
     path('donate',views.donate),
     path('feedback',views.feedback),
@@ -43,5 +47,7 @@ urlpatterns = [
     path('addDonor',views1.addDonor),
     path('addEvent',views1.addEvent),
     path('cashRecieved',views1.cashRecieved),
-     path('addExpenditure',views1.addExpenditure),
+    path('addExpenditure',views1.addExpenditure),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
