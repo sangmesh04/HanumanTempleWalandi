@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'checkout.apps.CheckoutConfig',
     'paywix',
     'home',
+    'adminpanel',
 ]
 
 MIDDLEWARE = [
