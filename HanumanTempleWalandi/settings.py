@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'checkout.apps.CheckoutConfig',
     'paywix',
-    'home',
-    'adminpanel',
 ]
 
 MIDDLEWARE = [
